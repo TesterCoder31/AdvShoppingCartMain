@@ -9,10 +9,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 s = Service(executable_path='./chromedriver')
 driver = webdriver.Chrome(service=s)
-# s = Service(executable_path='./chromedriver')
-#
-#
-# driver = webdriver.Chrome(service=s)
 
 
 # Fixture method - to open web browser
