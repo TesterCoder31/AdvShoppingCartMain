@@ -19,7 +19,7 @@ def setup():
     driver.maximize_window()
 
     # Let's wait for the browser response in general
-    driver.implicitly_wait(50)
+    driver.implicitly_wait(30)
 
     # Navigating to the Advantage shopping cart app website
     driver.get(locators.advantage_url)
@@ -129,6 +129,7 @@ def del_user():
     sleep(4)
     driver.find_element(By.XPATH, '//*[@id="loginMiniTitle"]/label[1]').click()
     sleep(3)
+
     driver.find_element(By.CLASS_NAME, 'deleteBtnText').click()
     #driver.find_element(By.XPATH, '//div[@id="myAccountContainer"]/div[6]/button/div').click()
     sleep(3)
@@ -195,12 +196,48 @@ def new():
     print("Incorrect user name or password.")
 
 
+def check_text_displayed():
+
+    content = driver.find_element(By.ID, 'speakersTxt')
+    print(f"On advantage shopping website {content.text} text is displayed")
+    content = driver.find_element(By.ID, 'tabletsTxt')
+    print(f"On advantage shopping website {content.text} text is displayed")
+    content = driver.find_element(By.ID, 'laptopsTxt')
+    print(f"On advantage shopping website {content.text} text is displayed")
+    content = driver.find_element(By.ID, 'miceTxt')
+    print(f"On advantage shopping website {content.text} text is displayed")
+    content = driver.find_element(By.ID, 'headphonesTxt')
+    print(f"On advantage shopping website {content.text} text is displayed")
+    content1 = driver.find_element(By.XPATH, '/html/body/header/nav/div/a/span[1]')
+    #print(f"On advantage shopping website {content.text} text is displayed")
+    content2 = driver.find_element(By.XPATH, '/html/body/header/nav/div/a/span[2]')
+    print(f"On advantage shopping website {content2.text} {content1.text} text is displayed")
+    # content = driver.find_element(By.XPATH, '//*[@id="Layer_1"]/path')
+    # print(f"On advantage shopping website {content.text} text is displayed")
+    driver.find_element(By.LINK_TEXT, 'OUR PRODUCTS').click()
+    driver.find_element(By.LINK_TEXT, 'SPECIAL OFFER').click()
+    driver.find_element(By.LINK_TEXT, 'CONTACT US').click()
+    print("All links are clickable for Advantage shopping website")
+    sleep(2)
+    # Select(driver.find_element(By.NAME, 'categoryListboxContactUs')).select_by_visible_text('Laptops')
+    # sleep(2)
+    # Select(driver.find_element(By.NAME, 'productListboxContactUs')).select_by_visible_text('HP Chromebook 14 G1(ENERGY STAR)')
+    driver.find_element(By.NAME, 'emailContactUs').send_keys(locators.advantage_email)
+    sleep(1)
+    driver.find_element(By.NAME, 'subjectTextareaContactUs').send_keys('Hi')
+    sleep(1)
+    driver.find_element(By.ID, 'send_btnundefined').click()
+    sleep(1)
+    driver.find_element(By.LINK_TEXT, 'CONTINUE SHOPPING').click()
+
+
 
 
 
 setup()
-create_new_user()
-#log_out()
-#login_with_new_user()
-del_user()
-tearDown()
+# create_new_user()
+# #log_out()
+# #login_with_new_user()
+# del_user()
+# tearDown()
+check_text_displayed()
