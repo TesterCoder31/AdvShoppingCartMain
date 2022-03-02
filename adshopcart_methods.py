@@ -196,6 +196,7 @@ def new():
     print("Incorrect user name or password.")
 
 
+#
 def check_text_displayed():
 
     content = driver.find_element(By.ID, 'speakersTxt')
@@ -211,7 +212,7 @@ def check_text_displayed():
     content1 = driver.find_element(By.XPATH, '/html/body/header/nav/div/a/span[1]')
     #print(f"On advantage shopping website {content.text} text is displayed")
     content2 = driver.find_element(By.XPATH, '/html/body/header/nav/div/a/span[2]')
-    print(f"On advantage shopping website {content2.text} {content1.text} text is displayed")
+    print(f"On advantage shopping website {content1.text} {content2.text} text is displayed")
     # content = driver.find_element(By.XPATH, '//*[@id="Layer_1"]/path')
     # print(f"On advantage shopping website {content.text} text is displayed")
     driver.find_element(By.LINK_TEXT, 'OUR PRODUCTS').click()
@@ -231,15 +232,16 @@ def check_text_displayed():
     content = driver.find_element(By.XPATH, '//*[@id="registerSuccessCover"]/div/a')
     print(f"{content.text} is displayed")
     driver.find_element(By.LINK_TEXT, 'CONTINUE SHOPPING').click()
+    sleep(3)
 
 
 
 
 
-setup()
+#setup()
 # create_new_user()
 # #log_out()
 # #login_with_new_user()
 # del_user()
 # tearDown()
-check_text_displayed()
+#check_text_displayed()
