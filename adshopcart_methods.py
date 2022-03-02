@@ -228,6 +228,8 @@ def check_text_displayed():
     sleep(1)
     driver.find_element(By.ID, 'send_btnundefined').click()
     sleep(1)
+    content = driver.find_element(By.XPATH, '//*[@id="registerSuccessCover"]/div/a')
+    print(f"{content.text} is displayed")
     driver.find_element(By.LINK_TEXT, 'CONTINUE SHOPPING').click()
 
 
