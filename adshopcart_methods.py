@@ -47,7 +47,7 @@ def create_new_user():
     driver.find_element(By.ID, 'menuUser').click()
     sleep(4)
     driver.find_element(By.LINK_TEXT, 'CREATE NEW ACCOUNT').click()
-    sleep(2)
+    sleep(3)
     driver.find_element(By.NAME, 'usernameRegisterPage').send_keys(locators.advantage_first_name)
     sleep(0.25)
     driver.find_element(By.NAME, 'emailRegisterPage').send_keys(locators.advantage_email)
@@ -71,17 +71,18 @@ def create_new_user():
     driver.find_element(By.NAME, 'state_/_province_/_regionRegisterPage').send_keys(locators.advantage_state)
     sleep(0.25)
     driver.find_element(By.NAME, 'postal_codeRegisterPage').send_keys(locators.advantage_postal_code)
-    sleep(0.25)
-    driver.find_element(By.XPATH, '//*[@id="formCover"]/sec-view/div/input').click()
-    sleep(0.25)
+    sleep(2)
+    #driver.find_element(By.XPATH, '//*[@id="formCover"]/sec-view/div/input').click()
+    driver.find_element(By.NAME, 'i_agree').click()
+    sleep(3)
     driver.find_element(By.ID, 'register_btnundefined').click()
-    sleep(0.25)
+    sleep(3)
     print(f"New user is created successfully with username: {locators.advantage_full_name}")
     sleep(0.25)
     driver.find_element(By.ID, 'menuUser').click()
     sleep(4)
     driver.find_element(By.XPATH, '//*[@id="loginMiniTitle"]/label[1]').click()
-    sleep(0.25)
+    sleep(3)
     content = driver.find_element(By.XPATH, '//*[@id="myAccountContainer"]/div[1]/div/div[1]/label')
     print(f"User name validate with {content.text}")
     driver.find_element(By.ID, 'menuUser').click()
@@ -90,6 +91,7 @@ def create_new_user():
     sleep(2)
     content = driver.find_element(By.XPATH, '/html/body/div[3]/section/article/div[3]/div/div/label')
     print(f"In my order {content.text} is displayed")
+    sleep(3)
 
 
 # Log out user from the advantage shopping website page
@@ -132,7 +134,7 @@ def del_user():
 
     driver.find_element(By.CLASS_NAME, 'deleteBtnText').click()
     #driver.find_element(By.XPATH, '//div[@id="myAccountContainer"]/div[6]/button/div').click()
-    sleep(3)
+    sleep(4)
     driver.find_element(By.XPATH, '//div[text()="yes"]').click()
     #driver.find_element(By.XPATH, '//div[@id="deleteAccountPopup"]/div[3]/div').click()
     sleep(5)
@@ -196,7 +198,7 @@ def new():
     print("Incorrect user name or password.")
 
 
-#
+# Here we are checking website's text is displayed, all links are clickable and functionality of contact us form
 def check_text_displayed():
 
     content = driver.find_element(By.ID, 'speakersTxt')
